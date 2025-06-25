@@ -18,14 +18,14 @@ def main():
         
         # Display basic information about the DataFrame
         print(f"Successfully loaded data from '{csv_file}'")
-        print(f"DataFrame shape: {df.shape}")
+        #print(f"DataFrame shape: {df.shape}")
         print(f"Columns: {list(df.columns)}")
-        print("\nFirst few rows:")
-        print(df.head())
+        #print("\nFirst few rows:")
+        #print(df.head())
         
         # Display data types
-        print("\nData types:")
-        print(df.dtypes)
+        #print("\nData types:")
+        #print(df.dtypes)
         
         # Display basic statistics for numeric columns
         if df.select_dtypes(include=['number']).shape[1] > 0:
