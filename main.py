@@ -54,4 +54,13 @@ if __name__ == "__main__":
     # You can perform additional operations on the dataframe here
     if dataframe is not None:
         print(f"\nDataFrame loaded successfully with {len(dataframe)} rows and {len(dataframe.columns)} columns")
-        
+
+        favorite_wins = dataframe['Favourite Wins'].sum()
+        print(f"\nTotal favorite wins: {favorite_wins}")
+
+        underdog_wins = dataframe['Underdog Wins'].sum()
+        print(f"Total underdog wins: {underdog_wins}")
+
+        # Calculate the percentage of underdog wins
+        underdog_percentage = (underdog_wins / (favorite_wins + underdog_wins)) * 100
+        print(f"Percentage of underdog wins: {underdog_percentage:.2f}%")
