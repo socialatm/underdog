@@ -64,3 +64,9 @@ if __name__ == "__main__":
         # Calculate the percentage of underdog wins
         underdog_percentage = (underdog_wins / (favorite_wins + underdog_wins)) * 100
         print(f"Percentage of underdog wins: {underdog_percentage:.2f}%")
+
+        total_events = len(dataframe)
+        print(f"Total number of events: {total_events}")
+
+        
+        
