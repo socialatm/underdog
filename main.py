@@ -53,4 +53,5 @@ if __name__ == "__main__":
     
     # You can perform additional operations on the dataframe here
     if dataframe is not None:
-        print(f"\nDataFrame loaded successfully with {len(dataframe)} rows and {len(dataframe.columns)} columns")# placeholder for main.py
+        print(f"\nDataFrame loaded successfully with {len(dataframe)} rows and {len(dataframe.columns)} columns")
+        
