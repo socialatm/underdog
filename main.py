@@ -68,5 +68,11 @@ if __name__ == "__main__":
         total_events = len(dataframe)
         print(f"Total number of events: {total_events}")
 
-        
+        # events with 4 underdog wins
+        four_underdog_wins = dataframe[dataframe['Underdog Wins'] == 4]
+        print(f"\nNumber of events with 4 underdog wins: {len(four_underdog_wins)}")
+
+        #percent of events with 4 underdog wins
+        percent_four_underdog_wins = (len(four_underdog_wins) / total_events) * 100
+        print(f"Percentage of events with 4 underdog wins: {percent_four_underdog_wins:.2f}%")
         
