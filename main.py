@@ -76,6 +76,7 @@ if __name__ == "__main__":
         # minimum number of underdog wins
         min_underdog_wins = dataframe['Underdog Wins'].min()
         print(f"\nMinimum number of underdog wins: {min_underdog_wins}")
+        #min_underdog_wins = 4  # Set minimum underdog wins to 3 for further calculations
 
         # maximum number of underdog wins
         max_underdog_wins = dataframe['Underdog Wins'].max()
@@ -95,7 +96,7 @@ if __name__ == "__main__":
             count = len(dataframe[dataframe['Underdog Wins'] == i])
             #print(f"Number of events with {i} underdog wins: {count}")
             # calculate the percentage of events with i underdog wins
-            percent_i_underdog_wins = (count / total_events) * 100
+            percent_i_underdog_wins = (count / events_gte_min) * 100
             print(f"Percentage of events with {i} underdog wins: {percent_i_underdog_wins:.2f}%")
             #print(f"\n")
         
