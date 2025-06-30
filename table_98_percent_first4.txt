@@ -1,6 +1,4 @@
 Date	Event	Favourite Wins	Underdog Wins
-27th Jun 20	UFC Fight Night 175 | Links: 
-                    UFC Fight Night 175                   (https://www.betmma.tips/mma_event_betting_history.php?Event=610)	7	3
 11th Jul 20	UFC 251 | Links: 
                     UFC 251                   (https://www.betmma.tips/mma_event_betting_history.php?Event=608)	11	2
 15th Jul 20	UFC Fight Island 1 | Links: 
@@ -329,4 +327,6 @@ Date	Event	Favourite Wins	Underdog Wins
                     UFC Fight Night: Usman vs. Buckley                   (https://www.betmma.tips/mma_event_betting_history.php?Event=1793)	9	3
 21st Jun 25	UFC Fight Night: Hill vs. Rountree | Links: 
                     UFC Fight Night: Hill vs. Rountree                   (https://www.betmma.tips/mma_event_betting_history.php?Event=1783)	7	5
-		1289 (68%)	617 (32%)
+28th Jun 25	UFC 317 | Links: 
+                    UFC 317                   (https://www.betmma.tips/mma_event_betting_history.php?Event=1800)	8	3
+		1290 (68%)	617 (32%)
