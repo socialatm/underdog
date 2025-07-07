@@ -8,6 +8,12 @@ class BetmmaSpider(scrapy.Spider):
     allowed_domains = ["betmma.tips"]
     start_urls = ["https://www.betmma.tips/mma_betting_favorites_vs_underdogs.php?Org=1"]
 
+    custom_settings = {
+        "FEEDS": {
+            "betmma.csv": {"format": "csv", "overwrite": True, "encoding": "utf-8"},
+        },
+    }
+
     def extract_formatted_date(self, text):
         """Extract and convert date/time text to 'YYYY-MM-DD' format."""
         if not text or not text.strip():
