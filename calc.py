@@ -48,7 +48,7 @@ def calculate_implied_probability(odds):
     return round(probability, 2)
 
 def main():
-    """Extract data from table_98_percent_first4.csv into a pandas DataFrame"""
+    # Extract data from table_98_percent_first4.csv into a pandas DataFrame
     
     # Define the CSV file path
     csv_file = "table_98_percent_first4.csv"
