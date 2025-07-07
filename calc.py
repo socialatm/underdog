@@ -48,10 +48,10 @@ def calculate_implied_probability(odds):
     return round(probability, 2)
 
 def main():
-    # Extract data from table_98_percent_first4.csv into a pandas DataFrame
+    # Extract data from betmma.csv into a pandas DataFrame
     
     # Define the CSV file path
-    csv_file = "table_98_percent_first4.csv"
+    csv_file = "./underdog/betmma.csv"
     
     # Check if file exists
     if not os.path.exists(csv_file):
@@ -83,15 +83,15 @@ def main():
 if __name__ == "__main__":
     # Load the data
     dataframe = main()
-    
+     
     # You can perform additional operations on the dataframe here
     if dataframe is not None:
         print(f"\nDataFrame loaded successfully with {len(dataframe)} rows and {len(dataframe.columns)} columns")
 
-        favorite_wins = dataframe['Favourite Wins'].sum()
+        favorite_wins = dataframe['favourite_wins'].sum()
         print(f"\nTotal favorite wins: {favorite_wins}")
 
-        underdog_wins = dataframe['Underdog Wins'].sum()
+        underdog_wins = dataframe['underdog_wins'].sum()
         print(f"Total underdog wins: {underdog_wins}")
 
         # Calculate the percentage of underdog wins
@@ -99,11 +99,11 @@ if __name__ == "__main__":
         print(f"Percentage of underdog wins: {underdog_percentage:.2f}%")
         
         # minimum number of underdog wins
-        min_underdog_wins = dataframe['Underdog Wins'].min()
+        min_underdog_wins = dataframe['underdog_wins'].min()
         print(f"\nMinimum number of underdog wins: {min_underdog_wins}")
 
         # maximum number of underdog wins
-        max_underdog_wins = dataframe['Underdog Wins'].max()
+        max_underdog_wins = dataframe['underdog_wins'].max()
         print(f"Maximum number of underdog wins: {max_underdog_wins}")
         
         total_events = len(dataframe)
@@ -111,13 +111,13 @@ if __name__ == "__main__":
         print(f"\n")
 
         # CORRECTED: Calculate events with underdog wins >= min_underdog_wins
-        events_gte_min = len(dataframe[dataframe['Underdog Wins'] >= min_underdog_wins])
+        events_gte_min = len(dataframe[dataframe['underdog_wins'] >= min_underdog_wins])
         print(f"Total number of events with {min_underdog_wins} or more underdog wins: {events_gte_min}")
         print(f"\n")
 
         # create a loop from min_underdog_wins to max_underdog_wins
         for i in range(min_underdog_wins, max_underdog_wins + 1):
-            count = len(dataframe[dataframe['Underdog Wins'] == i])
+            count = len(dataframe[dataframe['underdog_wins'] == i])
             # calculate the percentage of events with i underdog wins
             percent_i_underdog_wins = (count / events_gte_min) * 100
             print(f"Percentage of events with {i} underdog wins: {percent_i_underdog_wins:.2f}%")
