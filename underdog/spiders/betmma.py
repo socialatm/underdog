@@ -1,7 +1,5 @@
-from pathlib import Path
 import scrapy
 import re
-from datetime import datetime
 import dateutil.parser
 
 
