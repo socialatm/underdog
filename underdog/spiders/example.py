@@ -148,11 +148,11 @@ class ExampleSpider(scrapy.Spider):
             
             if table_data:
                 # Save text version (unchanged)
-                text_filename = "table_98_percent_first4.txt"
-                text_data = ['\t'.join(row) for row in table_data]
-                Path(text_filename).write_text('\n'.join(text_data), encoding='utf-8')
-                self.log(f"Saved first 4 columns with links to {text_filename}")
-                print(f"Saved first 4 columns with links to {text_filename}")
+                #text_filename = "table_98_percent_first4.txt"
+                #text_data = ['\t'.join(row) for row in table_data]
+                #Path(text_filename).write_text('\n'.join(text_data), encoding='utf-8')
+                #self.log(f"Saved first 4 columns with links to {text_filename}")
+                #print(f"Saved first 4 columns with links to {text_filename}")
                 
                 # Create CSV version with header row handling and first cell filtering
                 csv_filename = "table_98_percent_first4.csv"
