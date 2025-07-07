@@ -5,8 +5,8 @@ from datetime import datetime
 import dateutil.parser
 
 
-class ExampleSpider(scrapy.Spider):
-    name = "example"
+class Betmma(scrapy.Spider):
+    name = "betmma"
     allowed_domains = ["betmma.tips"]
     start_urls = ["https://www.betmma.tips/mma_betting_favorites_vs_underdogs.php?Org=1"]
 
