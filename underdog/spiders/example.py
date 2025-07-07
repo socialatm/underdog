@@ -97,12 +97,7 @@ class ExampleSpider(scrapy.Spider):
         table = response.css('table[width="98%"]').get()
         
         if table:
-            # Save the table HTML to a file
-            #filename = "table_98_percent.html"
-            #Path(filename).write_text(table, encoding='utf-8')
-            #self.log(f"Saved table to {filename}")
-            #print(f"Saved table to {filename}")
-            
+               
             # Extract table data including links - FIRST 4 CELLS ONLY
             table_rows = response.css('table[width="98%"] tr')
             table_data = []
@@ -147,12 +142,6 @@ class ExampleSpider(scrapy.Spider):
                     table_data.append(row_data)  # Keep as list for easier processing
             
             if table_data:
-                # Save text version (unchanged)
-                #text_filename = "table_98_percent_first4.txt"
-                #text_data = ['\t'.join(row) for row in table_data]
-                #Path(text_filename).write_text('\n'.join(text_data), encoding='utf-8')
-                #self.log(f"Saved first 4 columns with links to {text_filename}")
-                #print(f"Saved first 4 columns with links to {text_filename}")
                 
                 # Create CSV version with header row handling and first cell filtering
                 csv_filename = "table_98_percent_first4.csv"
