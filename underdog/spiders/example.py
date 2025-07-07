@@ -98,10 +98,10 @@ class ExampleSpider(scrapy.Spider):
         
         if table:
             # Save the table HTML to a file
-            filename = "table_98_percent.html"
-            Path(filename).write_text(table, encoding='utf-8')
-            self.log(f"Saved table to {filename}")
-            print(f"Saved table to {filename}")
+            #filename = "table_98_percent.html"
+            #Path(filename).write_text(table, encoding='utf-8')
+            #self.log(f"Saved table to {filename}")
+            #print(f"Saved table to {filename}")
             
             # Extract table data including links - FIRST 4 CELLS ONLY
             table_rows = response.css('table[width="98%"] tr')
