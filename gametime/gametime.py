@@ -54,7 +54,7 @@ def run_fight_tracker():
         current_fight = draftkings.iloc[fights_processed]
         fighter_1 = current_fight['fighter_1']
         fighter_2 = current_fight['fighter_2']
-        print(f"\nNext Fight: {fighter_1} vs. {fighter_2}")
+        print(f"\nNext Fight: {fighter_1} {current_fight['fighter_1_odds']} vs. {fighter_2} {current_fight['fighter_2_odds']}")
 
         if get_yes_no_input("Did this fight result in an upset?"):
             remaining_upsets -= 1
