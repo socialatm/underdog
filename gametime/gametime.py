@@ -18,14 +18,18 @@ def run_fight_tracker():
     """
     An interactive tool to track the required upset percentage for a fight card.
     """
-    # Load, sort by bout number descending, and reset the index
-    draftkings = pd.read_csv("odds.csv").sort_values(by="bout_number", ascending=False).reset_index(drop=True)
+    # Perform an initial load to get the starting number of fights for the session.
+    try:
+        initial_df = pd.read_csv("odds.csv")
+        total_fights = len(initial_df)
+    except FileNotFoundError:
+        print("Error: 'odds.csv' not found. Please ensure the file is in the correct directory.")
+        return
 
     try:
         # Based on the HTML context, a common number of fights is around 13.
         # A 32% upset rate would be about 4 upsets.
         
-        total_fights = len(draftkings)
         expected_upsets = int(input(f"Enter your predicted number of upsets for the card (e.g., 4): "))
     except ValueError:
         print("Invalid input. Please enter whole numbers.")
@@ -38,6 +42,15 @@ def run_fight_tracker():
     print("\n--- Let's start the fight card! ---")
 
     while remaining_fights > 0:
+        # Reload the CSV inside the loop to get the latest odds for each fight.
+        # This is useful if the odds are being updated live in the file.
+        draftkings = pd.read_csv("odds.csv").sort_values(by="bout_number", ascending=False).reset_index(drop=True)
+
+        # Gracefully handle if a fight was removed from the CSV mid-session.
+        if fights_processed >= len(draftkings):
+            print("\nNumber of fights in the CSV has changed. Ending tracker.")
+            break
+
         if remaining_upsets < 0:
             remaining_upsets = 0 # Can't have negative upsets
 
@@ -48,8 +61,6 @@ def run_fight_tracker():
         print(f"\nFights remaining: {remaining_fights}. ")
         # print(f"Underdogs need to win {needed_percent:.1f}% of the remaining fights to hit your prediction.")
         
-
-        # Use fights_processed for 0-based ascending indexing
         # Get the current fight's data using .iloc for efficient row access
         current_fight = draftkings.iloc[fights_processed]
         fighter_1 = current_fight['fighter_1']
