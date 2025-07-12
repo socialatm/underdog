@@ -1,3 +1,5 @@
+import pandas as pd
+
 def get_yes_no_input(prompt_message):
     """
     Prompts the user for a yes/no response and returns True for 'yes' or 'y',
@@ -16,10 +18,14 @@ def run_fight_tracker():
     """
     An interactive tool to track the required upset percentage for a fight card.
     """
+    # Load, sort by bout number descending, and reset the index
+    draftkings = pd.read_csv("odds.csv").sort_values(by="bout_number", ascending=False).reset_index(drop=True)
+
     try:
         # Based on the HTML context, a common number of fights is around 13.
         # A 32% upset rate would be about 4 upsets.
-        total_fights = int(input("Enter total number of fights on the card (e.g., 13): "))
+        
+        total_fights = len(draftkings)
         expected_upsets = int(input(f"Enter your predicted number of upsets for the card (e.g., 4): "))
     except ValueError:
         print("Invalid input. Please enter whole numbers.")
@@ -27,6 +33,7 @@ def run_fight_tracker():
 
     remaining_fights = total_fights
     remaining_upsets = expected_upsets
+    fights_processed = 0
 
     print("\n--- Let's start the fight card! ---")
 
@@ -42,9 +49,17 @@ def run_fight_tracker():
         print(f"\nFights remaining: {remaining_fights}. Upsets still needed: {remaining_upsets}.")
         print(f"Underdogs need to win {needed_percent:.1f}% of the remaining fights to hit your prediction.")
 
-        if get_yes_no_input("Did the last fight result in an upset?"):
+        # Use fights_processed for 0-based ascending indexing
+        # Get the current fight's data using .iloc for efficient row access
+        current_fight = draftkings.iloc[fights_processed]
+        fighter_1 = current_fight['fighter_1']
+        fighter_2 = current_fight['fighter_2']
+        print(f"\nNext Fight: {fighter_1} vs. {fighter_2}")
+
+        if get_yes_no_input("Did this fight result in an upset?"):
             remaining_upsets -= 1
         
+        fights_processed += 1
         remaining_fights -= 1
 
     print("\n--- Fight card finished! ---")
