@@ -46,14 +46,16 @@ def run_fight_tracker():
             break
         
         needed_percent = (remaining_upsets / remaining_fights) * 100
-        print(f"\nFights remaining: {remaining_fights}. Upsets still needed: {remaining_upsets}.")
-        print(f"Underdogs need to win {needed_percent:.1f}% of the remaining fights to hit your prediction.")
+        print(f"\nFights remaining: {remaining_fights}. ")
+        # print(f"Underdogs need to win {needed_percent:.1f}% of the remaining fights to hit your prediction.")
+        
 
         # Use fights_processed for 0-based ascending indexing
         # Get the current fight's data using .iloc for efficient row access
         current_fight = draftkings.iloc[fights_processed]
         fighter_1 = current_fight['fighter_1']
         fighter_2 = current_fight['fighter_2']
+        print(f"Chance of the next fight being an Underdog win {needed_percent:.1f}% ")
         print(f"\nNext Fight: {fighter_1} {current_fight['fighter_1_odds']} vs. {fighter_2} {current_fight['fighter_2_odds']}")
 
         if get_yes_no_input("Did this fight result in an upset?"):
