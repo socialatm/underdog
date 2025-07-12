@@ -42,8 +42,7 @@ def run_fight_tracker():
             remaining_upsets = 0 # Can't have negative upsets
 
         if remaining_upsets > remaining_fights:
-            print(f"\nIt's now impossible to have {expected_upsets} upsets. You need {remaining_upsets} but only {remaining_fights} fights are left.")
-            break
+            print(f"\nIt's now impossible to have {expected_upsets} upsets. You need {remaining_upsets} but only {remaining_fights} fights are left.")        
         
         needed_percent = (remaining_upsets / remaining_fights) * 100
         print(f"\nFights remaining: {remaining_fights}. ")
